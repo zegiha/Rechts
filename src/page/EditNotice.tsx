@@ -5,7 +5,6 @@ import {Title} from "../atoms/Atomic";
 import Footer from "../components/Footer";
 import {useLocation} from "react-router-dom";
 import TitleEditNotice from "../components/EditNotice/TitleEditNotice";
-import FileEditNotice from "../components/EditNotice/FileEditNotice";
 import ContentsEditNotice from "../components/EditNotice/ContentsEditNotice";
 import EditModal from "../components/EditNotice/EditModal";
 
@@ -18,8 +17,11 @@ const EditNotice = () => {
   const [userName, setUserName] = useState(noticeData.username);
   const [title, setTitle] = useState(noticeData.title);
   const [contents, setContents] = useState(noticeData.contents);
+  // eslint-disable-next-line
   const [imgSrc, setImgSrc] = useState<string[]>([]);
+  // eslint-disable-next-line
   const [files, setFiles] = useState(noticeData.uploadImageList);
+  // eslint-disable-next-line
   const [delFiles, setDelFiles] = useState('');
 
   const [warn, setWarn] = useState({
