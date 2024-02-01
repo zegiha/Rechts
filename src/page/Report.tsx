@@ -7,6 +7,33 @@ import mbcLogo from "../assets/Report/mbcLogo.svg"
 import sbsLogo from "../assets/Report/sbsLogo.svg"
 import kbsLogo from "../assets/Report/kbsLogo.svg"
 
+const newsData = [
+  {
+    key: "mbc",
+    img: mbcLogo,
+    clickLink: "https://news.imbc.com/more/report/",
+    link: "https://news.imbc.com/<br/>more/report/",
+    mail: "mbcjebo@mbc.co.kr",
+    phone: "02-784-4000",
+  },
+  {
+    key: "sbs",
+    img: sbsLogo,
+    clickLink: "https://news.sbs.co.kr/news/inform.do",
+    link: "https://news.sbs.co.kr/<br/>news/inform.do",
+    mail: "sbs8news@sbs.co.kr",
+    phone: "02-2113-6000",
+  },
+  {
+    key: "kbs",
+    img: kbsLogo,
+    clickLink: "https://news.imbc.com/more/report/",
+    link: "https://news.imbc.com/more/report/<br/>reportWrite.do",
+    mail: "kbs1234@kbs.co.kr",
+    phone: "02-781-1234, 4444",
+  },
+]
+
 const Report = () => {
   return (
     <>
@@ -15,69 +42,30 @@ const Report = () => {
         <Wrapper>
           <Title data-aos={"fade-up"}>언론 제보로 더욱 알리기</Title>
           <Box data-aos={"fade-up"}>
-            <Item>
-              <Top>
-                <MbcLogo src={mbcLogo}/>
-                <Line/>
-              </Top>
-              <Texts>
-                <GoToPage href={'https://news.imbc.com/more/report/'} target={'_blank'}>
-                  <SubTitle>홈페이지</SubTitle>
-                  https://news.imbc.com/<br/>
-                  more/report/
-                </GoToPage>
-                <Text>
-                  <SubTitle>이메일</SubTitle>
-                  mbcjebo@mbc.co.kr
-                </Text>
-                <Text>
-                  <SubTitle>전화번호</SubTitle>
-                  02-784-4000
-                </Text>
-              </Texts>
-            </Item>
-            <Item>
-              <Top>
-                <SbsLogo src={sbsLogo}/>
-                <Line/>
-              </Top>
-              <Texts>
-                <GoToPage href={'https://news.sbs.co.kr/news/inform.do'} target={'_blank'}>
-                  <SubTitle>홈페이지</SubTitle>
-                  https://news.sbs.co.kr/<br/>
-                  news/inform.do
-                </GoToPage>
-                <Text>
-                  <SubTitle>이메일</SubTitle>
-                  sbs8news@sbs.co.kr
-                </Text>
-                <Text>
-                  <SubTitle>전화번호</SubTitle>
-                  02-2113-6000
-                </Text>
-              </Texts>
-            </Item>
-            <Item>
-              <Top>
-                <KbsLogo src={kbsLogo}/>
-                <Line/>
-              </Top>
-              <Texts>
-                <GoToPage href={'https://news.imbc.com/more/report/'} target={'_blank'}>
-                  <SubTitle>홈페이지</SubTitle>
-                  https://news.kbs.co.kr/report/<br/>
-                  reportWrite.do
-                </GoToPage>
-                <Text>
-                  <SubTitle>이메일</SubTitle>
-                  kbs1234@kbs.co.kr
-                </Text>
-                <Text>
-                  <SubTitle>전화번호</SubTitle>
-                  02-781-1234, 4444
-                </Text>
-              </Texts>
-            </Item>
+            {
+              newsData.map((data, i) => (
+                <Item>
+                  <Top>
+                    <MbcLogo src={data.img}/>
+                    <Line/>
+                  </Top>
+                  <Texts>
+                    <GoToPage href={data.clickLink} target={'_blank'}>
+                      <SubTitle>홈페이지</SubTitle>
+                      {data.link}
+                    </GoToPage>
+                    <Text>
+                      <SubTitle>이메일</SubTitle>
+                      {data.mail}
+                    </Text>
+                    <Text>
+                      <SubTitle>전화번호</SubTitle>
+                      {data.phone}
+                    </Text>
+                  </Texts>
+                </Item>
+              ))
+            }
           </Box>
         </Wrapper>
       </Container>
