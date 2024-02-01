@@ -5,6 +5,7 @@ import {Title} from "../atoms/Atomic";
 import Footer from "../components/Footer";
 import {useLocation} from "react-router-dom";
 import TitleEditNotice from "../components/EditNotice/TitleEditNotice";
+import FileEditNotice from "../components/EditNotice/FileEditNotice";
 import ContentsEditNotice from "../components/EditNotice/ContentsEditNotice";
 import EditModal from "../components/EditNotice/EditModal";
 
@@ -69,14 +70,14 @@ const EditNotice = () => {
               title={title}
               warn={warn}
             />
-            {/*<FileEditNotice*/}
-            {/*  imgSrc={imgSrc}*/}
-            {/*  setImgSrc={setImgSrc}*/}
-            {/*  files={files}*/}
-            {/*  setFiles={setFiles}*/}
-            {/*  delFiles={delFiles}*/}
-            {/*  setDelFiles={setDelFiles}*/}
-            {/*/>*/}
+            <FileEditNotice
+              imgSrc={imgSrc}
+              setImgSrc={setImgSrc}
+              files={files}
+              setFiles={setFiles}
+              delFiles={delFiles}
+              setDelFiles={setDelFiles}
+            />
             <ContentsEditNotice
               setContents={setContents}
               contents={contents}
@@ -144,7 +145,7 @@ const Section = styled.div`
   padding: 35px;
   flex-direction: column;
   border-radius: 20px;
-  border: 2px solid var(--line, rgba(0, 0, 0, 0.10));
+  border: 2px solid var(rgba(0, 0, 0, 0.10));
 `;
 const Wrapper = styled.div`
   width: 1120px;

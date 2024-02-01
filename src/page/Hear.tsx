@@ -15,7 +15,11 @@ const Hear = () => {
     else return false;
   }
 
-  if(isError) console.error(error);
+  if(isError) return (
+      <>
+          <Title>Error</Title>
+      </>
+  )
   else if(isLoading) return (
     <>
       <Title>Loading</Title>
@@ -124,6 +128,8 @@ const Item = styled(Link)`
   height: 250px;
   text-decoration: none;
   transition: 0.2s;
+  
+  overflow: hidden;
 
   &:hover {
     scale: 1.05;

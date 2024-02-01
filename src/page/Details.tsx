@@ -85,7 +85,7 @@ const EditNotice = styled(Link)`
   transition: all 0.2s;
   &:hover {
     background: rgba(0, 0, 0, 0.07);
-    transform: scale(1.05);
+    //transform: scale(1.05);
   }
 `;
 const DelNotice = styled.div`
@@ -102,9 +102,10 @@ const DelNotice = styled.div`
   font-weight: 500;
   line-height: normal;
   transition: all 0.2s;
+
   &:hover {
-    background: #FF2E2E;
-    transform: scale(1.05);
+    background: #e31b1b;
+    //transform: scale(1.05);
     cursor: pointer;
   }
 `;

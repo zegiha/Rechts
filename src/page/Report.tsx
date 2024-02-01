@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import styled from "styled-components";
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer";
@@ -12,7 +12,7 @@ const newsData = [
     key: "mbc",
     img: mbcLogo,
     clickLink: "https://news.imbc.com/more/report/",
-    link: "https://news.imbc.com/<br/>more/report/",
+    link: ["https://news.imbc.com/", "more/report/"],
     mail: "mbcjebo@mbc.co.kr",
     phone: "02-784-4000",
   },
@@ -20,7 +20,7 @@ const newsData = [
     key: "sbs",
     img: sbsLogo,
     clickLink: "https://news.sbs.co.kr/news/inform.do",
-    link: "https://news.sbs.co.kr/<br/>news/inform.do",
+    link: ["https://news.sbs.co.kr/", "news/inform.do"],
     mail: "sbs8news@sbs.co.kr",
     phone: "02-2113-6000",
   },
@@ -28,7 +28,7 @@ const newsData = [
     key: "kbs",
     img: kbsLogo,
     clickLink: "https://news.imbc.com/more/report/",
-    link: "https://news.imbc.com/more/report/<br/>reportWrite.do",
+    link: ["https://news.imbc.com/more/report/", "reportWrite.do"],
     mail: "kbs1234@kbs.co.kr",
     phone: "02-781-1234, 4444",
   },
@@ -44,7 +44,7 @@ const Report = () => {
           <Box data-aos={"fade-up"}>
             {
               newsData.map((data, i) => (
-                <Item>
+                <Item key={data.key}>
                   <Top>
                     <MbcLogo src={data.img}/>
                     <Line/>
@@ -52,7 +52,14 @@ const Report = () => {
                   <Texts>
                     <GoToPage href={data.clickLink} target={'_blank'}>
                       <SubTitle>홈페이지</SubTitle>
-                      {data.link}
+                      {data.link.map((n, i) => {
+                        return(
+                          <Fragment key={i}>
+                            {n}
+                            <br/>
+                          </Fragment>
+                        );
+                      })}
                     </GoToPage>
                     <Text>
                       <SubTitle>이메일</SubTitle>
@@ -150,7 +157,7 @@ const Item = styled.div`
   gap: 5vh;
   width: 436px;
   padding: 40px 20px;
-  border: 2px solid var(--line, rgba(0, 0, 0, 0.10));
+  border: 2px solid var(rgba(0, 0, 0, 0.10));
   border-radius: 10px;
 `;
 const Box = styled.div`
